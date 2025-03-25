@@ -1,0 +1,78 @@
+Main Page
+From: Mhc wiki - gnu linux and rfid fun
+
+
+
+Welcome to MhcWiki Free as Freedom!
+"Memento mori! Memento te hominem esse! Respice post te! Hominem te esse memento!"
+
+
+What I use
+"Free software" is a matter of liberty, not price. To understand the concept, you should think of "free" as in "free speech," not as in "free beer".
+
+
+fsf The Free Software Foundation
+
+gnu GNU Operating System
+
+kernel The Linux Kernel
+
+kde K Desktop Environment
+
+fedora Fedora Linux-based operating system
+
+rpm fusion Repository of add-on packages for Fedora
+
+
+CentOS Community Enterprise Operating System
+
+
+aosp Android Open Source Project
+
+cyanogenmod Firmware based on the open-source Android operating system r.i.p. my fried :(
+
+
+openwrt Wireless Freedom. Linux distribution for embedded devices
+
+lede Linux-based, embedded meta-distribution based on OpenWrt
+
+
+pebble Best! r.i.p.
+
+
+signal Speak Freely
+
+
+RfID
+"God takes care of all folks and fools, while the devil takes care of makin all the rules."
+
+
+mhc_rfid simple phidgets rfid reader test application for gnu/linux
+
+pam_mhcrfid gnu/linux box authentication with pam and phidgets rfid reader
+
+
+Raid 1 convert CentOS
+"Don't think what you can do, think what you could do."
+
+
+Convert to raid 1 CentOS 7 personal experience convert live CentOS system to raid 1, no data loss
+
+
+Any other business
+"Build your product with integrity ...stand behind it 100% and success will follow."
+
+
+privacy security mail spam web database communication mobility speed filter monitoring surveillance ...and beyond
+
+
+Gaming
+"You got to pay to play just for shorty, bang-bang, to look your way."
+
+
+Gaming play hard!
+
+
+#EoF profit! ;P
+
+*this page has been EoL'd a long time ago, page content might be useful/useless xD

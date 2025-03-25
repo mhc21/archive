@@ -1,0 +1,354 @@
+<!--  -->
+<!DOCTYPE html>
+<!--  -->
+<html lang="en-US" dir="ltr">
+<!-- <html lang="en" dir="ltr" itemscope itemtype="http://schema.org/WebPage"> -->
+<!--  -->
+<head>
+<!--  -->
+<meta charset="utf-8" />
+<!--  -->
+<title>Convert to raid 1 CentOS 7 - Mhc wiki - gnu linux and rfid fun</title>
+<!--  -->
+<meta name="author" content="mhc" />
+<!--  -->
+<!-- <meta name="description" content="" /> -->
+<!--  -->
+<meta name="image" content="https://cmatthew.net/wiki_site.png" />
+<!--  -->
+<!-- <meta name="keywords" content="" /> -->
+<!--  -->
+<link rel="canonical" href="https://cmatthew.net/wiki/Convert_to_raid_1_CentOS_7" />
+<!-- <link rel="amphtml" href="https://*/amp/" /> -->
+<!--  -->
+<meta name="generator" content="Mhc brain - Kate - MediaWiki" />
+<!--  -->
+<meta name="robots" content="index,follow" />
+<!--  -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!--  -->
+<meta name=viewport content="width=device-width, initial-scale=1" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="application-name" content="cmatthew.net" />
+<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="#17c804" />
+<meta name="apple-mobile-web-app-title" content="cmatthew.net" />
+<meta name="format-detection" content="telephone=no" />
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
+<meta name="msapplication-config" content="/browserconfig.xml" /> 
+<meta name="msapplication-navbutton-color" content="#17c804" />
+<meta name="msapplication-TileColor" content="#17c804" />
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+<meta name="theme-color" content="#17c804" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<!--
+<meta itemprop="name" content="Convert to raid 1 CentOS 7 - Mhc wiki - gnu linux and rfid fun" />
+<meta itemprop="description" content="" />
+<meta itemprop="image" content="https://cmatthew.net/wiki_site.png" />
+-->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Convert to raid 1 CentOS 7 - Mhc wiki - gnu linux and rfid fun" />
+<meta name="twitter:description" content="Convert to raid 1 CentOS 7 - Mhc wiki - gnu linux and rfid fun" />
+<meta name="twitter:site" content="@CmatthewNet" />
+<meta name="twitter:creator" content="@CmatthewNet" />
+<meta name="twitter:image" content="https://cmatthew.net/wiki_site.png" />
+<!--  -->
+<meta property="og:title" content="Convert to raid 1 CentOS 7 - Mhc wiki - gnu linux and rfid fun" />
+<meta property="og:description" content="Convert to raid 1 CentOS 7 - Mhc wiki - gnu linux and rfid fun" />
+<meta property="og:image" content="https://cmatthew.net/wiki_site.png" />
+<meta property="og:url" content="https://cmatthew.net/wiki/Convert_to_raid_1_CentOS_7">
+<meta property="og:site_name" content="Mhc wiki - gnu linux and rfid fun" />
+<meta property="og:type" content="website" />
+<!--  -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "WebSite",
+  "name": "cmatthew.net - gnu/linux & gaming",
+  "alternateName": "Mhc wiki - gnu linux and rfid fun",
+  "url": "https://cmatthew.net/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://cmatthew.net/?s={search_term}", 
+    "query-input": "required name=search_term" 
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "cmatthew.net - gnu/linux & gaming",
+  "url": "https://cmatthew.net/",
+  "logo": "https://cmatthew.net/wiki_logo.png",
+  "description": "cmatthew.net - gnu/linux & gaming",
+  "sameAs": [
+    "https://twitter.com/CmatthewNet",
+    "https://plus.google.com/+CmatthewNet",
+    "https://www.youtube.com/c/CmatthewNet"
+  ],
+  "founder": [
+ {
+ "@type": "Person",
+ "name": "mhc"
+ }]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "name": "Convert to raid 1 CentOS 7 - Mhc wiki - gnu linux and rfid fun",
+    "description": "Convert to raid 1 CentOS 7 - Mhc wiki - gnu linux and rfid fun"
+}
+</script>
+<!--  -->
+<style>
+body {
+font-family:Monospace; }
+pre {
+background:#F8F8FF;
+border:black dashed 1px;
+padding:1em;
+white-space: pre-wrap; }
+a:link {
+text-decoration: none;
+color: midnightblue; }
+a:visited {
+text-decoration: none;
+color: midnightblue; }
+a:hover {
+text-decoration: underline;
+color: midnightblue; }
+a:active {
+text-decoration: underline;
+color: midnightblue; }
+#toc {
+background:#F8F8FF;
+border:black dashed 1px;
+padding:1em; }
+</style>
+<!--  -->
+</head>
+<!--  -->
+<body>
+<!--  -->
+<a href="https://cmatthew.net/wiki/Main_Page"><img src="wiki.png" alt="mhc_logo" height="90" width="155" /></a><br />
+<!--  -->
+<h1>Convert to raid 1 CentOS 7</h1>
+<div><p>From: <b>Mhc wiki - gnu linux and rfid fun</b></p></div>
+<p><br /></p>
+<!-- start content -->
+<div><h3>The Need</h3>
+<p>I recently had the need to convert my home server setup from single disk to raid 1 without loosing data or reinstall the system. I found various articles around for this but mostly for old version of redhat/centos, debian/ubuntu and older initramfs/grub version. For personal reference and to thank all the people that share information i'm writing this article.</p>
+<p>Main reason for this headache: have a more safe place to store some important data and, since I use mostly really cheap or "cost zero" hardware, a safer place for my CentOS 7 installation. </p>
+<p>I'm no expert, follow this instruction at your own risk. <b>I'm not responsible for data loss, or any damage that might occur following this instructions</b>. It just worked for me.</p>
+<h3><br />Backup all your data</h3>
+<p>Remember that raid 1 is not a backup, always do your backups!!!</p>
+<h3><br />Comments/Discuss</h3>
+<p>This is a really small wiki for personal use, no talk/discuss or user registration is allowed.</p>
+<p><s><a rel="nofollow" href="https://plus.google.com/+CmatthewNet/posts/XP6HwNjSEQD">Google+ Post</a> Google+ Post Discussion</s></p>
+<p>fell free to contact me for any info, comments, personal experience or correction to this page</p>
+<p>"" [dot] "" [at] "" [dot] ""</p>
+<p><br /></p></div>
+<div id="toc"><div><h3>Contents</h3></div>
+<ul>
+<li><a href="#start"><span>1</span> <span>start</span></a>
+<ul>
+<li><a href="#current_setup"><span>1.1</span> <span>current setup</span></a></li>
+<li><a href="#what_we_need"><span>1.2</span> <span>what we need</span></a></li>
+<li><a href="#backup"><span>1.3</span> <span>backup</span></a></li>
+</ul>
+</li>
+<li><a href="#new_disk"><span>2</span> <span>new disk</span></a>
+<ul>
+<li><a href="#plug_in_new_disk"><span>2.1</span> <span>plug in new disk</span></a></li>
+<li><a href="#partitions"><span>2.2</span> <span>partitions</span></a></li>
+<li><a href="#create_degraded_raid_1"><span>2.3</span> <span>create degraded raid 1</span></a></li>
+<li><a href="#create_filesystem_raid_1"><span>2.4</span> <span>create filesystem raid 1</span></a></li>
+</ul>
+</li>
+<li><a href="#transfer_data"><span>3</span> <span>transfer data</span></a>
+<ul>
+<li><a href="#mount"><span>3.1</span> <span>mount</span></a></li>
+<li><a href="#copy_existing_data"><span>3.2</span> <span>copy existing data</span></a></li>
+</ul>
+</li>
+<li><a href="#grub2_and_initramfs"><span>4</span> <span>grub2 and initramfs</span></a>
+<ul>
+<li><a href="#mount_system_information"><span>4.1</span> <span>mount system information</span></a></li>
+<li><a href="#chroot"><span>4.2</span> <span>chroot</span></a></li>
+<li><a href="#fstab"><span>4.3</span> <span>fstab</span></a></li>
+<li><a href="#create_mdadm_configuration"><span>4.4</span> <span>create mdadm configuration</span></a></li>
+<li><a href="#initramfs"><span>4.5</span> <span>initramfs</span></a></li>
+<li><a href="#grub_parameters"><span>4.6</span> <span>grub parameters</span></a></li>
+<li><a href="#make_new_grub_config"><span>4.7</span> <span>make new grub config</span></a></li>
+<li><a href="#install_grub"><span>4.8</span> <span>install grub</span></a></li>
+</ul>
+</li>
+<li><a href="#reboot"><span>5</span> <span>reboot</span></a>
+<ul>
+<li><a href="#add_old_disk_to_array"><span>5.1</span> <span>add old disk to array</span></a></li>
+</ul>
+</li>
+<li><a href="#monitoring"><span>6</span> <span>monitoring</span></a>
+<ul>
+<li><a href="#raid-check"><span>6.1</span> <span>raid-check</span></a></li>
+<li><a href="#smart"><span>6.2</span> <span>smart</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br /></p>
+<h2><span id="start">start</span></h2>
+<h3><span id="current_setup">current setup</span></h3>
+<p>1x segate barracuda 500gb as /dev/sda with 3 partitions.</p>
+<pre>/dev/sda1 /boot
+/dev/sda2 swap
+/dev/sda3 /
+</pre>
+<p>Current partitions are XFS not using LVM</p>
+<h3><span id="what_we_need">what we need</span></h3>
+<p>I'm adding a second identical disk /dev/sdb for raid 1 setup. The raid will be a linux software raid managed by "mdadm" be sure to have package installed.</p>
+<pre>yum install mdadm</pre>
+<p>Be also sure to have a lot of patience, junk food and caffeine as usual :)</p>
+<h3><span id="backup">backup</span></h3>
+<p>A full working backup of everything.</p>
+<h2><span id="new_disk">new disk</span></h2>
+<h3><span id="plug_in_new_disk">plug in new disk</span></h3>
+<p>/dev/sdb pretty obvious.</p>
+<h3><span id="partitions">partitions</span></h3>
+<p>Create identical partition scheme as curent disk /dev/sda</p>
+<pre>sfdisk -d /dev/sda | sfdisk /dev/sdb
+</pre>
+<p>Check</p>
+<pre>fdisk -l</pre>
+<p>Convert new disk /dev/sdb partitions to "Linux raid autodetect"</p>
+<pre>fdisk /dev/sdb use "t" to convert all 3 partitions to "fd"</pre>
+<p>Check</p>
+<pre>fdisk -l</pre>
+<h3><span id="create_degraded_raid_1">create degraded raid 1</span></h3>
+<p>Create for all partition on new disk /dev/sdb</p>
+<pre>mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdb1
+mdadm --create /dev/md1 --level=1 --raid-devices=2 missing /dev/sdb2
+mdadm --create /dev/md2 --level=1 --raid-devices=2 missing /dev/sdb3</pre>
+<p>Check</p>
+<pre>cat /proc/mdstat</pre>
+<h3><span id="create_filesystem_raid_1">create filesystem raid 1</span></h3>
+<p>Create for all newly created raid 1 partition</p>
+<pre>mkfs.xfs /dev/md0
+mkswap /dev/md1
+mkfs.xfs /dev/md2</pre>
+<h2><span id="transfer_data">transfer data</span></h2>
+<h3><span id="mount">mount</span></h3>
+<p>Mount both / and /boot</p>
+<pre>mount /dev/md2 /mnt/
+mount /dev/md0 /mnt/boot/</pre>
+<h3><span id="copy_existing_data">copy existing data</span></h3>
+<pre>rsync -auxHAXSv --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/mnt/*  /* /mnt
+rsync -auxHAXSv /boot/* /mnt</pre>
+<p>I'm no rsync expert this did the job for me.</p>
+<h2><span id="grub2_and_initramfs">grub2 and initramfs</span></h2>
+<h3><span id="mount_system_information">mount system information</span></h3>
+<p>Mount both / and /boot (should be already mounted)</p>
+<pre>mount /dev/md2 /mnt/
+mount /dev/md0 /mnt/boot/</pre>
+<p>System information</p>
+<pre>mount --bind /proc /mnt/proc
+mount --bind /dev /mnt/dev
+mount --bind /sys /mnt/sys
+mount --bind /run /mnt/run</pre>
+<h3><span id="chroot">chroot</span></h3>
+<p>Jail! No harm to current system.</p>
+<pre>chroot /mnt/</pre>
+<h3><span id="fstab">fstab</span></h3>
+<p>Edit fstab with new dirve UUID information</p>
+<pre>blkid /dev/md*
+/dev/md0: UUID="your-UUID" TYPE="xfs" 
+/dev/md1: UUID="your-UUID" TYPE="swap" 
+/dev/md2: UUID="your-UUID" TYPE="xfs"</pre>
+<pre>vim /etc/fstab 
+UUID=your-UUID /                       xfs     defaults        0 0
+UUID=your-UUID /boot                   xfs     defaults        0 0
+UUID=your-UUID swap                    swap    defaults        0 0</pre>
+<h3><span id="create_mdadm_configuration">create mdadm configuration</span></h3>
+<pre>mdadm --detail --scan &gt; /etc/mdadm.conf</pre>
+<h3><span id="initramfs">initramfs</span></h3>
+<p>Backup current and create new initramfs</p>
+<pre>cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bck
+dracut --mdadmconf --fstab --add="mdraid" --filesystems "xfs ext4 ext3 tmpfs devpts sysfs proc" --add-drivers="raid1" --force /boot/initramfs-$(uname -r).img $(uname -r) -M</pre>
+<h3><span id="grub_parameters">grub parameters</span></h3>
+<p>Add some default parameters to grub</p>
+<pre>vim /etc/default/grub
+GRUB_CMDLINE_LINUX="rd.auto rd.auto=1 rhgb quiet"
+GRUB_PRELOAD_MODULES="mdraid1x"</pre>
+<h3><span id="make_new_grub_config">make new grub config</span></h3>
+<pre>grub2-mkconfig -o /boot/grub2/grub.cfg</pre>
+<h3><span id="install_grub">install grub</span></h3>
+<p>Install grub on new disk /dev/sdb</p>
+<pre>grub2-install /dev/sdb</pre>
+<h2><span id="reboot">reboot</span></h2>
+<p>At this point you can reboot the system choosing new disk /dev/sdb from bios, or plug old disk /dev/sda out. if all worked out system will boot, check mount points and raid status</p>
+<pre>swapon -s
+Filename            Type            Size    Used    Priority
+/dev/md1            partition       12279804        0       -1</pre>
+<pre>mount -t xfs
+/dev/md2 on / type xfs (rw,relatime,attr2,inode64,noquota)
+/dev/md0 on /boot type xfs (rw,relatime,attr2,inode64,noquota)</pre>
+<pre>cat /proc/mdstat</pre>
+<p>Or if didn't work out.. well we didn't touch any data or anything else on original disk so read more, start over.. don't complaint u'r use to it :)</p>
+<h3><span id="add_old_disk_to_array">add old disk to array</span></h3>
+<p>Now we ca add old disk /dev/sda to the array. Change partition type to "Linux raid autodetect".</p>
+<pre>fdisk /dev/sda use "t" to convert all 3 partitions to "fd"</pre>
+<p>Add disk to raid 1 array</p>
+<pre>mdadm --manage /dev/md0 --add /dev/sda1
+mdadm --manage /dev/md1 --add /dev/sda2
+mdadm --manage /dev/md2 --add /dev/sda3</pre>
+<p>Check rebuild</p>
+<pre>watch -n1 "cat /proc/mdstat"</pre>
+<p>Reinstall grub on /dev/sda</p>
+<pre>grub2-install /dev/sda</pre>
+<h2><span id="monitoring">monitoring</span></h2>
+<p>add to /etc/mdadm.conf</p>
+<pre>vim /etc/mdadm.conf
+MAILADDR root</pre>
+<h3><span id="raid-check">raid-check</span></h3>
+<p>The status of raid device will be checked once a week by default</p>
+<pre>cat /etc/cron.d/raid-check
+# Run system wide raid-check once a week on Sunday at 1am by default
+0 1 * * Sun root /usr/sbin/raid-check</pre>
+<p>to change parameters check /etc/sysconfig/raid-check</p>
+<h3><span id="smart">smart</span></h3>
+<p>Use smart features if available on hard drives</p>
+<pre>yum install smartmontools</pre>
+<p>This is my personal configuration: comment all lines in /etc/smartmontools/smartd.conf and add</p>
+<pre>/dev/sda -H -C 0 -U 0 -m root
+/dev/sda -a -o on -S on -s (S/../.././02|L/../../1/04)
+/dev/sdb -H -C 0 -U 0 -m root
+/dev/sdb -a -o on -S on -s (S/../.././02|L/../../1/04)</pre>
+<!--  -->
+<br /><p>#EoF profit! <b>;P</b></p>
+<br /><img src="publicdomain.png" alt="publicdomain logo" height="45" width="127" />
+<a href="https://plus.google.com/+CmatthewNet"><img src="gp.png" alt="g_plus" height="45" width="46" /></a>
+<a href="https://twitter.com/CmatthewNet"><img src="tw.png" alt="tw_ttr" height="45" width="46" /></a>
+<a href="https://www.youtube.com/c/CmatthewNet"><img src="yt.png" alt="y_tube" height="45" width="46" /></a>
+<a href="https://cmatthew.net/wiki/Freenode"><img src="freenode.png" alt="freenode" height="45" width="127" /></a>
+<img src="not-fd.png" alt="not_fbook" height="45" width="127" />
+<h5>*this page has been EoL'd a long time ago, page content might be useful/useless xD</h5>
+<!--  -->
+</body>
+<!--  -->
+</html>
+<!--  -->

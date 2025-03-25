@@ -1,0 +1,218 @@
+Convert to raid 1 CentOS 7
+From: Mhc wiki - gnu linux and rfid fun
+
+
+
+The Need
+I recently had the need to convert my home server setup from single disk to raid 1 without loosing data or reinstall the system. I found various articles around for this but mostly for old version of redhat/centos, debian/ubuntu and older initramfs/grub version. For personal reference and to thank all the people that share information i'm writing this article.
+
+Main reason for this headache: have a more safe place to store some important data and, since I use mostly really cheap or "cost zero" hardware, a safer place for my CentOS 7 installation.
+
+I'm no expert, follow this instruction at your own risk. I'm not responsible for data loss, or any damage that might occur following this instructions. It just worked for me.
+
+
+Backup all your data
+Remember that raid 1 is not a backup, always do your backups!!!
+
+
+Comments/Discuss
+This is a really small wiki for personal use, no talk/discuss or user registration is allowed.
+
+Google+ Post Google+ Post Discussion
+
+fell free to contact me for any info, comments, personal experience or correction to this page
+
+"" [dot] "" [at] "" [dot] ""
+
+
+
+Contents
+1 start
+1.1 current setup
+1.2 what we need
+1.3 backup
+2 new disk
+2.1 plug in new disk
+2.2 partitions
+2.3 create degraded raid 1
+2.4 create filesystem raid 1
+3 transfer data
+3.1 mount
+3.2 copy existing data
+4 grub2 and initramfs
+4.1 mount system information
+4.2 chroot
+4.3 fstab
+4.4 create mdadm configuration
+4.5 initramfs
+4.6 grub parameters
+4.7 make new grub config
+4.8 install grub
+5 reboot
+5.1 add old disk to array
+6 monitoring
+6.1 raid-check
+6.2 smart
+
+
+start
+current setup
+1x segate barracuda 500gb as /dev/sda with 3 partitions.
+
+/dev/sda1 /boot
+/dev/sda2 swap
+/dev/sda3 /
+Current partitions are XFS not using LVM
+
+what we need
+I'm adding a second identical disk /dev/sdb for raid 1 setup. The raid will be a linux software raid managed by "mdadm" be sure to have package installed.
+
+yum install mdadm
+Be also sure to have a lot of patience, junk food and caffeine as usual :)
+
+backup
+A full working backup of everything.
+
+new disk
+plug in new disk
+/dev/sdb pretty obvious.
+
+partitions
+Create identical partition scheme as curent disk /dev/sda
+
+sfdisk -d /dev/sda | sfdisk /dev/sdb
+Check
+
+fdisk -l
+Convert new disk /dev/sdb partitions to "Linux raid autodetect"
+
+fdisk /dev/sdb use "t" to convert all 3 partitions to "fd"
+Check
+
+fdisk -l
+create degraded raid 1
+Create for all partition on new disk /dev/sdb
+
+mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdb1
+mdadm --create /dev/md1 --level=1 --raid-devices=2 missing /dev/sdb2
+mdadm --create /dev/md2 --level=1 --raid-devices=2 missing /dev/sdb3
+Check
+
+cat /proc/mdstat
+create filesystem raid 1
+Create for all newly created raid 1 partition
+
+mkfs.xfs /dev/md0
+mkswap /dev/md1
+mkfs.xfs /dev/md2
+transfer data
+mount
+Mount both / and /boot
+
+mount /dev/md2 /mnt/
+mount /dev/md0 /mnt/boot/
+copy existing data
+rsync -auxHAXSv --exclude=/dev/* --exclude=/proc/* --exclude=/sys/* --exclude=/tmp/* --exclude=/mnt/*  /* /mnt
+rsync -auxHAXSv /boot/* /mnt
+I'm no rsync expert this did the job for me.
+
+grub2 and initramfs
+mount system information
+Mount both / and /boot (should be already mounted)
+
+mount /dev/md2 /mnt/
+mount /dev/md0 /mnt/boot/
+System information
+
+mount --bind /proc /mnt/proc
+mount --bind /dev /mnt/dev
+mount --bind /sys /mnt/sys
+mount --bind /run /mnt/run
+chroot
+Jail! No harm to current system.
+
+chroot /mnt/
+fstab
+Edit fstab with new dirve UUID information
+
+blkid /dev/md*
+/dev/md0: UUID="your-UUID" TYPE="xfs" 
+/dev/md1: UUID="your-UUID" TYPE="swap" 
+/dev/md2: UUID="your-UUID" TYPE="xfs"
+vim /etc/fstab 
+UUID=your-UUID /                       xfs     defaults        0 0
+UUID=your-UUID /boot                   xfs     defaults        0 0
+UUID=your-UUID swap                    swap    defaults        0 0
+create mdadm configuration
+mdadm --detail --scan > /etc/mdadm.conf
+initramfs
+Backup current and create new initramfs
+
+cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bck
+dracut --mdadmconf --fstab --add="mdraid" --filesystems "xfs ext4 ext3 tmpfs devpts sysfs proc" --add-drivers="raid1" --force /boot/initramfs-$(uname -r).img $(uname -r) -M
+grub parameters
+Add some default parameters to grub
+
+vim /etc/default/grub
+GRUB_CMDLINE_LINUX="rd.auto rd.auto=1 rhgb quiet"
+GRUB_PRELOAD_MODULES="mdraid1x"
+make new grub config
+grub2-mkconfig -o /boot/grub2/grub.cfg
+install grub
+Install grub on new disk /dev/sdb
+
+grub2-install /dev/sdb
+reboot
+At this point you can reboot the system choosing new disk /dev/sdb from bios, or plug old disk /dev/sda out. if all worked out system will boot, check mount points and raid status
+
+swapon -s
+Filename            Type            Size    Used    Priority
+/dev/md1            partition       12279804        0       -1
+mount -t xfs
+/dev/md2 on / type xfs (rw,relatime,attr2,inode64,noquota)
+/dev/md0 on /boot type xfs (rw,relatime,attr2,inode64,noquota)
+cat /proc/mdstat
+Or if didn't work out.. well we didn't touch any data or anything else on original disk so read more, start over.. don't complaint u'r use to it :)
+
+add old disk to array
+Now we ca add old disk /dev/sda to the array. Change partition type to "Linux raid autodetect".
+
+fdisk /dev/sda use "t" to convert all 3 partitions to "fd"
+Add disk to raid 1 array
+
+mdadm --manage /dev/md0 --add /dev/sda1
+mdadm --manage /dev/md1 --add /dev/sda2
+mdadm --manage /dev/md2 --add /dev/sda3
+Check rebuild
+
+watch -n1 "cat /proc/mdstat"
+Reinstall grub on /dev/sda
+
+grub2-install /dev/sda
+monitoring
+add to /etc/mdadm.conf
+
+vim /etc/mdadm.conf
+MAILADDR root
+raid-check
+The status of raid device will be checked once a week by default
+
+cat /etc/cron.d/raid-check
+# Run system wide raid-check once a week on Sunday at 1am by default
+0 1 * * Sun root /usr/sbin/raid-check
+to change parameters check /etc/sysconfig/raid-check
+
+smart
+Use smart features if available on hard drives
+
+yum install smartmontools
+This is my personal configuration: comment all lines in /etc/smartmontools/smartd.conf and add
+
+/dev/sda -H -C 0 -U 0 -m root
+/dev/sda -a -o on -S on -s (S/../.././02|L/../../1/04)
+/dev/sdb -H -C 0 -U 0 -m root
+/dev/sdb -a -o on -S on -s (S/../.././02|L/../../1/04)
+
+#EoF profit! ;P
+
+*this page has been EoL'd a long time ago, page content might be useful/useless xD

@@ -1,0 +1,92 @@
+Pam mhcrfid
+From: Mhc wiki - gnu linux and rfid fun
+
+
+
+what is it?
+pam_mhcrfid is a pam module for authentication with phidgets rfid reader.
+
+
+I did this for fun, to get some knowledge about rfid and becouse i'm too lazy to type in passwords! With the same tag you can login with your user and for all root stuff like su, system-config utils and so on, depending on your personal pam configuration. You can find other pam modules to get the same result with usb pen drives, for example, whit out the need to buy and carry around rfid reader and tags with your laptop. Of course on a desktop workstation it's pretty cool!
+
+
+I'm sure that this code is really bad written because I'm really noob in programming, and i would like to give credits to all people that i copied from like web site C tutorials, other pam modules, phidgets forum...
+
+
+fell free to contact me for any info, comments and improvement of this code.
+
+
+"" [dot] "" [at] "" [dot] ""
+
+
+
+Contents
+1 how does it works?
+2 to compile
+3 to install
+4 notes
+5 download
+6 video
+7 to do
+
+
+how does it works?
+It simply read the tag value from a phidgets rfid reader, then compare it with authorized tag value in .authtag file placed in user home. $HOME/.authtag file must be created by user contain authorized hex tag value and should be user read only. You can find out your tag hex value with my simple app mhc_rfid.
+
+If you are lazy like me and don't want to type root password every time place the same .authtag file in both your user home and root home.
+
+
+
+to compile
+gcc -Wall -fPIC -c pam_mhcrfid.c
+gcc -shared -o pam_mhcrfid.so pam_mhcrfid.o -lpam -lm -lphidget21
+
+
+to install
+copy .so file to /lib/security/ or /lib64/security/
+
+
+add to /etc/pam.d/system-auth or to pam service you want to use:
+
+
+
+auth     sufficient    pam_mhcrfid.so
+
+
+notes
+You should have your phidgets device usable by user, otherwise you can SUID kcheckpass if use kde for screen saver unlock.
+
+You can find info on how to make your device usable by user on fedora here.
+
+I've not tested with gnome screen saver, i don't use gnome. Let me know if you find out any problems.
+
+
+
+download
+pam_mhcrfid.c 0.1.4 source code (not using lasttag file anymore)
+
+pam_mhcrfid.c 0.1.3 source code (multi-user support)
+
+pam_mhcrfid.c 0.1.2 source code (added check to see if authtag and lasttag files exist to prevent errors)
+
+pam_mhcrfid.c 0.1.1 source code (removed all messages from screen, added info to syslog)
+
+pam_mhcrfid.c 0.1 source code (initial release)
+
+
+
+video
+video gdm and kde screensaver test
+
+
+
+to do
+Make a full install package (Makefile)
+
+Add some crypt to tag files
+
+
+#EoF profit! ;P
+
+*this page has been EoL'd a long time ago, page content might be useful/useless xD
+

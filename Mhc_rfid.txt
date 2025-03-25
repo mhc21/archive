@@ -1,0 +1,34 @@
+Mhc rfid
+From: Mhc wiki - gnu linux and rfid fun
+
+
+
+what for?
+mhc_rfid is a small program to test phidgets rfid reader, it will read tag to output hex value and turn on external led for testing.
+
+note that only external led will turn on with successfully read tag, not internal led or +5v output.
+
+i would like to give credits to all people that i copied from like web site C tutorials, phidgets example code and code from phidgets forums...
+
+fell free to contact me for any info, comments and improvement of this code.
+
+"" [dot] "" [at] "" [dot] ""
+
+
+
+Contents
+1 to compile
+2 download
+
+
+to compile
+gcc -o mhc_rfid mhc_rfid.c -g -O0 -Wall  -lphidget21 -lm
+
+
+download
+mhc_rfid.c 0.1 source code
+
+
+#EoF profit! ;P
+
+*this page has been EoL'd a long time ago, page content might be useful/useless xD
